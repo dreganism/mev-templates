@@ -1,57 +1,49 @@
 ## MEV Templates in Python, JavaScript, and Rust
 
-These three MEV templates are designed for readability and adhere to a consistent design pattern, enabling the replication of prevalent MEV strategies such as sandwich, frontrunning, arbitrage, and sniping.
+These MEV templates are crafted for clarity and consistency, facilitating the replication of common MEV strategies like sandwich, frontrunning, arbitrage, and sniping.
 
-### Included Example: DEX Flashloan Arbitrage
+### Example Included: DEX Flashloan Arbitrage
 
-Each template features a **DEX flashloan arbitrage example** to demonstrate usage. This example, while functional, requires further adjustments, particularly in terms of order size optimization and gas bidding strategies, to operate effectively as a DEX arbitrage bot. The operational steps include:
+Each template includes a **DEX flashloan arbitrage example** demonstrating the practical application. This basic example requires additional fine-tuning, particularly in optimizing order sizes and gas bidding strategies, to function effectively as a DEX arbitrage bot. The steps involved are:
 
 1. **Retrieving Historical Events**: Fetch all historical events from the blockchain (`PairCreated`).
-2. **Constructing Arbitrage Paths**: Create a triangular arbitrage path using the pools retrieved.
-3. **Multicall Requests**: Perform a multicall request of "getReserve" calls to all pools involved in trading (capable of retrieving data from over 6000 pools within 1-3 seconds).
+2. **Constructing Arbitrage Paths**: Create a triangular arbitrage path from the retrieved pools.
+3. **Multicall Requests**: Execute a multicall of "getReserve" requests to all involved trading pools (handling over 6000 pools in 1-3 seconds).
 4. **Streaming Data**: Stream new headers, pending transactions, and events asynchronously.
 5. **Offline Simulation**: Simulate Uniswap V2 3-hop paths offline.
-6. **Transaction Management**: Sign transactions and create bundles for submission to Flashbots; also supports sending transactions to the txpool (mempool).
+6. **Transaction Management**: Sign transactions and bundle for submission to Flashbots; also supports sending transactions to the mempool.
 
-
-## What is this?
+## Introduction
 
 ![Professor Oak](https://github.com/solidquant/mev-templates/assets/134243834/553560de-3334-4d4b-a447-14aa91ad28de)
 
 > (Professor Oak) *Good. So you are here.*
 
-In this Github repository, you can pick one of the most popular languages to use in your MEV project. By studying this project, you'll get a feel for how MEV strategies are built.
+This repository offers MEV templates in popular programming languages. It serves as a foundation for understanding and developing MEV strategies, equipped with basic tooling essential for traders at all levels.
 
-Most strategies share a common code base, and this repository is an attempt to include the basic tooling required for all level of traders to have in their pockets.
+## Setup Instructions
 
----
+To run these templates, you need to configure environment variables in a .env file:
 
-## How should I use this?
+- **HTTPS_URL**: Your node endpoints
+- **WSS_URL**: Your node endpoints
+- **CHAIN_ID**: Set to 1 for Ethereum, 137 for Polygon
+- **BLOCKNATIVE_TOKEN**: API key from Blocknative for the gas estimator service; you can get one at Block naitive.
+- **PRIVATE_KEY**: Your critical wallet key
+- **SIGNING_KEY**: Key used for Flashbots reputation/identity
+- **BOT_ADDRESS**: Address of your bot contract (V2ArbBot)
 
-Running the templates provided here are straightforward, however, you do need to create a .env file before you can begin:
+Use the provided `.env.example` as a template. Rename the copied file to `.env` with your specific settings:
 
-- **HTTPS_URL**: your node endpoints
-- **WSS_URL**: your node endpoints
-- **CHAIN_ID**: 1 if Ethereum, 137 if Polygon
-- **BLOCKNATIVE_TOKEN**: this is for the gas estimator service from Blocknative, you can create an account there and get the API key
-- **PRIVATE_KEY**: your real wallet key, what you have to protect with your life
-- **SIGNING_KEY**: just a key used for Flashbots reputation/identity
-- **BOT_ADDRESS**: the address of your bot contract (V2ArbBot)
-
-You can use the provided .env.example file and create an exact copy and name it .env (sample below):
-
-```
+```plaintext
 HTTPS_URL=http://192.168.200.182:8545
 WSS_URL=ws://192.168.200.182:8546
 CHAIN_ID=137
 BLOCKNATIVE_TOKEN=<token-here>
-
 PRIVATE_KEY=0xb3e5dc08b18918cce982438a28877e440aafc01fef4c314b95d0609bf946585f
 SIGNING_KEY=0x34f55bef77aca52be9f7506da40205f8ecd7e863fd3b465a5db9950247422caf
 BOT_ADDRESS=0xEc1f2DADF368D5a20D494a2974bC19e421812017
 ```
-
----
 
 ## Benchmarks
 
