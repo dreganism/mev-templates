@@ -47,11 +47,9 @@ BOT_ADDRESS=0xEc1f2DADF368D5a20D494a2974bC19e421812017
 
 ## Benchmarks
 
-It's always difficult to pick a programming language just right for the task, and often times, it shouldn't really matter what language you use. We should take many factors into account and decide on the one that you feel most comfortable with.
+Choosing the right programming language is crucial. While many factors should be considered, ease of use and execution speed are paramount.
 
-Among these factors, we should consider how fast each language is - in an environment that's similar to how most people would use the language, not in a super optimized way, because we don't normally hyper-optimize our codes.
-
-For this reason, I've run few benchmarks of the three templates to see how fast each can go.
+I've benchmarked the templates to evaluate their performance. Details are available in this blog post:
 
 [📊 Checkout the results from this blog post](https://medium.com/@solidquant/how-fast-is-your-mev-bot-comparing-javascript-python-rust-72376a820291)
 
