@@ -1,22 +1,17 @@
-# MEV templates written in Python, Javascript, and Rust to benchmark speed of each in similar tasks.
+## MEV Templates in Python, JavaScript, and Rust
 
-You can find three MEV templates written in Python/Javascript/Rust here.
+These three MEV templates are designed for readability and adhere to a consistent design pattern, enabling the replication of prevalent MEV strategies such as sandwich, frontrunning, arbitrage, and sniping.
 
-The three templates follow a similar design pattern and are written with readability in mind. With the components introduced here, you can easily reproduce most of the MEV strategies known to people: sandwich, frontrunning, arbitrage, sniping, so on and so forth.
+### Included Example: DEX Flashloan Arbitrage
 
-The templates all include an example **DEX flashloan arbitrage strategy** to demonstrate how the template can be used. It is a simple demonstration and will need some tweaking to make it work (mostly in regards to order size optimization and gas bidding strategy), though it will work as a real DEX arbitrage bot by doing:
+Each template features a **DEX flashloan arbitrage example** to demonstrate usage. This example, while functional, requires further adjustments, particularly in terms of order size optimization and gas bidding strategies, to operate effectively as a DEX arbitrage bot. The operational steps include:
 
-- Retrieving all historical events from the blockchain (PairCreated).
-
-- Create a triangular arbitrage path with all the pools retrieved from above.
-
-- Perform a multicall request of "getReserve" calls to all the pools we're trading (1 ~ 3 second to retrieve >=6000 pools).
-
-- Stream new headers, new pending transactions, events asynchronously.
-
-- Simulate Uniswap V2 3-hop paths offline.
-
-- Sign transactions and create bundles to send to Flashbots (also supports sending transactions to the mempool).
+1. **Retrieving Historical Events**: Fetch all historical events from the blockchain (`PairCreated`).
+2. **Constructing Arbitrage Paths**: Create a triangular arbitrage path using the pools retrieved.
+3. **Multicall Requests**: Perform a multicall request of "getReserve" calls to all pools involved in trading (capable of retrieving data from over 6000 pools within 1-3 seconds).
+4. **Streaming Data**: Stream new headers, pending transactions, and events asynchronously.
+5. **Offline Simulation**: Simulate Uniswap V2 3-hop paths offline.
+6. **Transaction Management**: Sign transactions and create bundles for submission to Flashbots; also supports sending transactions to the txpool (mempool).
 
 
 ## What is this?
