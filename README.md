@@ -1,4 +1,4 @@
-# MEV templates written in Python, Javascript, and Rust
+# MEV templates written in Python, Javascript, and Rust to benchmark speed of each in similar tasks.
 
 You can find three MEV templates written in Python/Javascript/Rust here.
 
