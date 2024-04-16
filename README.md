@@ -15,11 +15,7 @@ Each template includes a **DEX flashloan arbitrage example** demonstrating the p
 
 ## Introduction
 
-![Professor Oak](https://github.com/solidquant/mev-templates/assets/134243834/553560de-3334-4d4b-a447-14aa91ad28de)
-
-> (Professor Oak) *Good. So you are here.*
-
-This repository offers MEV templates in popular programming languages. It serves as a foundation for understanding and developing MEV strategies, equipped with basic tooling essential for traders at all levels.
+This repository offers MEV templates in popular programming languages. It is a foundation for understanding and developing MEV strategies and provides basic tooling for traders at all levels.
 
 ## Setup Instructions
 
